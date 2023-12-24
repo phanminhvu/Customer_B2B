@@ -14,6 +14,7 @@ using CustomerB2B.Services.CompanyAdditionalInfo;
 using CustomerB2B.Services.CompanyCopperationInfo;
 using CustomerB2B.Services.ICompanySpecificInfo;
 using CustomerB2B.Services.CompanySystemInfo;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,7 +74,12 @@ app.UseAuthentication(); ;
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "..", "UploadedFiles")),
+    RequestPath = "/UploadedFiles"
+});
 app.Run();
 
 
