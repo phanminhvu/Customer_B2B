@@ -95,8 +95,6 @@ namespace CustomerB2B.ViewModels
 
     public class CompanyInsertInfoViewModel
     {
-        //Id của doanh nghiệp
-        public string Id { get; set; }
         //Tên khách hàng
         public string Name { get; set; }
         public string ShortName { get; set; }

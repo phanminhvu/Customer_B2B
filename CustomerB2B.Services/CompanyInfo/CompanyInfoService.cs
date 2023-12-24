@@ -165,7 +165,6 @@ namespace CustomerB2B.Services.CompanyInfo
                     res.ResponseMessage = ErrorCode.DATA_EXISTS_MESSAGE;
                     return res;
                 }
-                companyInfo.Id = new Guid().ToString();
                 var model = new CompanyInsertInfoViewModel().ConvertViewModel(companyInfo);
                 _unitOfWork.GenericRepository<Company>().Add(model);
                 _unitOfWork.Save();
@@ -189,7 +188,7 @@ namespace CustomerB2B.Services.CompanyInfo
             ResponseData res = new ResponseData();
             try
             {
-                var modelCompanyInfo = _dbContext.Companies.Where(x => x.Code == companyInfo.Code).FirstOrDefault();
+                var modelCompanyInfo = _dbContext.Companies.Where(x => x.Code == companyInfo.Code && x.Id != Guid.Parse(id)).FirstOrDefault();
                 if (modelCompanyInfo != null)
                 {
                     res.ResponseCode = ErrorCode.DATA_EXISTS_CODE;
