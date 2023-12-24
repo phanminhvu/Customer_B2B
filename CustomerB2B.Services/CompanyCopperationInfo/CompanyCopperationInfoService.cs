@@ -22,7 +22,25 @@ namespace CustomerB2B.Services.CompanyCopperationInfo
 
         public ResponseData DeleteCompnayCopperation(string id)
         {
-            throw new NotImplementedException();
+            ResponseData res = new ResponseData();
+            try
+            {
+                Guid _id = Guid.Parse(id);
+                var model = _unitOfWork.GenericRepository<CompanyCopperationInformation>().GetById(_id);
+                _unitOfWork.GenericRepository<CompanyCopperationInformation>().Delete(model);
+                _unitOfWork.Save();
+                res.ResponseCode = ErrorCode.SUCCESS_CODE;
+                res.ResponseMessage = ErrorCode.REMOVE_SUCCESS_MESSAGE;
+                res.Data = model;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                res.ResponseCode = ErrorCode.ERROR_SYSTEM_CODE;
+                res.ResponseMessage = ErrorCode.ERROR_SYSTEM_MESSAGE;
+                res.Data = null;
+            }
+            return res;
         }
 
         public List<CompanyCopperationInformationInfoViewModel> GetAll(string companyId)
