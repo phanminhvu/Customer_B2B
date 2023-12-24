@@ -229,6 +229,19 @@ namespace CustomerB2B.Repositories
                            .Property(p => p.CompanyTypeId)
                            .IsRequired(false);
 
+            modelBuilder.Entity<CompanySystemInformation>()
+            .HasKey(p => p.Id);
+
+            modelBuilder.Entity<CompanySystemInformation>()
+                            .Property(p => p.CompanyId)
+                            .IsRequired(false);
+            modelBuilder.Entity<CompanySystemInformation>()
+                           .Property(p => p.CustomerType)
+                           .IsRequired(false);
+            modelBuilder.Entity<CompanySystemInformation>()
+                           .Property(p => p.SaleStaff)
+                           .IsRequired(false);
+
         }
 
 
@@ -241,6 +254,7 @@ namespace CustomerB2B.Repositories
         public DbSet<CompanySpecificInformation> CompanySpecificInformations { get; set; }
         public DbSet<CompanyAdditionalInformation> CompanyAdditionalInformations { get; set; }
         public DbSet<CompanyCopperationInformation> CompanyCopperationInformations { get; set; }
+        public DbSet<CompanySystemInformation> CompanySystemInformations { get; set; }
 
     }
 }

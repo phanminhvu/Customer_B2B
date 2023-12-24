@@ -5,6 +5,7 @@ using CustomerB2B.Services.CompanyRepresentativeInfo;
 using CustomerB2B.Utilities;
 using CustomerB2B.ViewModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -112,9 +113,44 @@ namespace CustomerB2B.Services.CompanyInfo
         public CompanyInfoViewModel GetCompanyById(string id)
         {
             var _id = Guid.Parse(id);
-            var model = _unitOfWork.GenericRepository<Company>().GetById(_id);
-            var vm = new CompanyInfoViewModel(model);
-            return vm;
+            var vmList = (from a in _dbContext.Companies
+                          join b in _dbContext.CompanyGroups on a.GroupId equals b.Id.ToString() into abGroup
+                          from b in abGroup.DefaultIfEmpty()
+                          where a.IsDeleted == false && a.Id == Guid.Parse(id) && (b == null || b.IsDeleted == false)
+                          select new CompanyInfoViewModel
+                          {
+                              Id = a.Id,
+                              Name = a.Name,
+                              Code = a.Code,
+                              TaxCode = a.TaxCode,
+                              PhoneNumber = a.PhoneNumber,
+                              Email = a.Email,
+                              Address = a.Address,
+                              DistrictId = a.DistrictId,
+                              City = a.City,
+                              GroupId = Guid.Parse(a.GroupId),
+                              GroupName = b.Name,
+                              lstCompanyType = (from ctc in _dbContext.CompanyTypeCompany
+                                                join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
+                                                where ctc.CompanyId == a.Id.ToString()
+                                                select new CompanyTypeInfoViewModel
+                                                {
+                                                    CompanyTypeName = ct.Name,
+                                                    CompanyTypeCode = ct.Code,
+                                                    Notice = ct.Notice,
+                                                    Id = a.Id,
+                                                }).ToList() == null ? new List<CompanyTypeInfoViewModel>() : (from ctc in _dbContext.CompanyTypeCompany
+                                                                                                              join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
+                                                                                                              where ctc.CompanyId == a.Id.ToString()
+                                                                                                              select new CompanyTypeInfoViewModel
+                                                                                                              {
+                                                                                                                  CompanyTypeName = ct.Name,
+                                                                                                                  CompanyTypeCode = ct.Code,
+                                                                                                                  Notice = ct.Notice,
+                                                                                                                  Id = a.Id,
+                                                                                                              }).ToList()
+                          }).FirstOrDefault();
+            return vmList;
         }
 
         public ResponseData InsertCompany(CompanyInsertInfoViewModel companyInfo)

@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 using CustomerB2B.Services.CompanyAdditionalInfo;
 using CustomerB2B.Services.CompanyCopperationInfo;
 using CustomerB2B.Services.ICompanySpecificInfo;
+using CustomerB2B.Services.CompanySystemInfo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,7 @@ builder.Services.AddScoped<ICompanyRepresentativeInfo, CompanyRepresentativeInfo
 builder.Services.AddScoped<ICompanyAdditionalInfo, CompanyAdditionalInfoService>();
 builder.Services.AddScoped<ICompanyCopperationInfo, CompanyCopperationInfoService>();
 builder.Services.AddScoped<ICompanySpecificInfo, CompanySpecificService>();
+builder.Services.AddScoped<ICompanySystemInfo, CompanySystemInfoService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
