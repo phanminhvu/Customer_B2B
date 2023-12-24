@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerB2B.Repositories\CustomerB2B.Repositories.csproj" />
+    <ProjectReference Include="..\CustomerB2B.Utilities\CustomerB2B.Utilities.csproj" />
+    <ProjectReference Include="..\CustomerB2B.ViewModels\CustomerB2B.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
