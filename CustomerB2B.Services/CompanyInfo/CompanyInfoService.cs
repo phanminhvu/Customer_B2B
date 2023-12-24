@@ -55,8 +55,9 @@ namespace CustomerB2B.Services.CompanyInfo
             {
                 int ExcludeRecords = (pageSize * pageNumber) - pageSize;
                 vmList = (from a in _dbContext.Companies
-                          join b in _dbContext.CompanyGroups on a.GroupId equals b.Id.ToString()
-                          where a.IsDeleted == false && b.IsDeleted == false
+                          join b in _dbContext.CompanyGroups on a.GroupId equals b.Id.ToString() into abGroup
+                          from b in abGroup.DefaultIfEmpty()
+                          where a.IsDeleted == false && (b == null || b.IsDeleted == false)
                           select new CompanyInfoViewModel
                           {
                               Id = a.Id,
@@ -79,7 +80,16 @@ namespace CustomerB2B.Services.CompanyInfo
                                                     CompanyTypeCode = ct.Code,
                                                     Notice = ct.Notice,
                                                     Id = a.Id,
-                                                }).ToList()
+                                                }).ToList() == null ? new List<CompanyTypeInfoViewModel>() : (from ctc in _dbContext.CompanyTypeCompany
+                                                                                                              join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
+                                                                                                              where ctc.CompanyId == a.Id.ToString()
+                                                                                                              select new CompanyTypeInfoViewModel
+                                                                                                              {
+                                                                                                                  CompanyTypeName = ct.Name,
+                                                                                                                  CompanyTypeCode = ct.Code,
+                                                                                                                  Notice = ct.Notice,
+                                                                                                                  Id = a.Id,
+                                                                                                              }).ToList()
                           }).ToList();
 
                 var modelList = vmList.Skip(ExcludeRecords).Take(pageSize).ToList();
