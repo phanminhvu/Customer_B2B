@@ -66,7 +66,8 @@ namespace CustomerB2B.Services.CompanyGroupInfo
 
         public CompanyGroupInfoViewModel GetCompanyGroupById(string id)
         {
-            var model = _unitOfWork.GenericRepository<CompanyGroup>().GetById(id);
+            var _id = Guid.Parse(id);
+            var model = _unitOfWork.GenericRepository<CompanyGroup>().GetById(_id);
             var vm = new CompanyGroupInfoViewModel(model);
             return vm;
         }
