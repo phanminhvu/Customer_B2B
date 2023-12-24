@@ -133,6 +133,9 @@ namespace CustomerB2B.Services.CompanyInfo
                               City = a.City,
                               GroupId = Guid.Parse(a.GroupId),
                               GroupName = b.Name,
+                              Notice = a.Notice,
+                              Field = a.Field,
+                              ShortName = a.ShortName,
                               lstCompanyType = (from ctc in _dbContext.CompanyTypeCompany
                                                 join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
                                                 where ctc.CompanyId == a.Id.ToString()
