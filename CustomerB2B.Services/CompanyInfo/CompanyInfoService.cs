@@ -195,7 +195,8 @@ namespace CustomerB2B.Services.CompanyInfo
                     res.ResponseMessage = ErrorCode.DATA_EXISTS_MESSAGE;
                     return res;
                 }
-                var modelById = _unitOfWork.GenericRepository<Company>().GetById(id);
+                var _id = Guid.Parse(id);
+                var modelById = _unitOfWork.GenericRepository<Company>().GetById(_id);
 
                 modelById.Code = companyInfo.Code;
                 modelById.Name = companyInfo.Name;

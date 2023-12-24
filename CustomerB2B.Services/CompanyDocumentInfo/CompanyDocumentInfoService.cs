@@ -62,7 +62,8 @@ namespace CustomerB2B.Services.CompanyDocumentInfo
 
         public CompanyDocumentInfoViewModel GetCompanyDocumentById(string id)
         {
-            var model = _unitOfWork.GenericRepository<CompanyDocument>().GetById(id);
+            var _id = Guid.Parse(id);
+            var model = _unitOfWork.GenericRepository<CompanyDocument>().GetById(_id);
             var vm = new CompanyDocumentInfoViewModel(model);
             return vm;
         }
@@ -93,7 +94,8 @@ namespace CustomerB2B.Services.CompanyDocumentInfo
             ResponseData res = new ResponseData();
             try
             {
-                var modelById = _unitOfWork.GenericRepository<CompanyDocument>().GetById(id);
+                var _id = Guid.Parse(id);
+                var modelById = _unitOfWork.GenericRepository<CompanyDocument>().GetById(_id);
                 modelById.CompanyId = companyDocumentInfo.CompanyId;
                 modelById.DocumentName = companyDocumentInfo.DocumentName;
                 modelById.Path = companyDocumentInfo.Path;

@@ -56,7 +56,8 @@ namespace CustomerB2B.Services.CompanySystemInfo
             ResponseData res = new ResponseData();
             try
             {
-                var modelById = _unitOfWork.GenericRepository<CompanySystemInformation>().GetById(id);
+                var _id = Guid.Parse(id);
+                var modelById = _unitOfWork.GenericRepository<CompanySystemInformation>().GetById(_id);
                 modelById.SaleStaff = companySystemInfo.SaleStaff;
                 modelById.CustomerType = companySystemInfo.CustomerType;
                 _unitOfWork.GenericRepository<CompanySystemInformation>().Update(modelById);
