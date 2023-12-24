@@ -75,6 +75,7 @@ namespace CustomerB2B.Services.CompanyInfo
                               Notice = a.Notice,
                               Field = a.Field,
                               ShortName = a.ShortName,
+                              Website = a.Website,
                               lstCompanyType = (from ctc in _dbContext.CompanyTypeCompany
                                                 join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
                                                 where ctc.CompanyId == a.Id.ToString()
@@ -136,6 +137,7 @@ namespace CustomerB2B.Services.CompanyInfo
                               Notice = a.Notice,
                               Field = a.Field,
                               ShortName = a.ShortName,
+                              Ưebsite = a.Website,
                               lstCompanyType = (from ctc in _dbContext.CompanyTypeCompany
                                                 join ct in _dbContext.CompanyTypes on ctc.CompanyTypeId equals ct.Id.ToString()
                                                 where ctc.CompanyId == a.Id.ToString()
