@@ -62,5 +62,30 @@ namespace CustomerB2B.Controllers
             var res = _companyDocumentInfo.DeleteCompnayDocument(id);
             return Ok(res);
         }
+
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No file is selected");
+
+            var uploadsFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "UploadedFiles");
+            if (!Directory.Exists(uploadsFolderPath))
+            {
+                Directory.CreateDirectory(uploadsFolderPath);
+            }
+
+            var filePath = Path.Combine(uploadsFolderPath, file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Trả lại đường dẫn tương đối hoặc tuyệt đối của file
+            var fileUrl = Path.Combine("UploadedFiles", file.FileName);
+            return Ok(new { FileUrl = fileUrl });
+        }
     }
 }

@@ -31,4 +31,8 @@
     <ProjectReference Include="..\CustomerB2B.Utilities\CustomerB2B.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+
 </Project>

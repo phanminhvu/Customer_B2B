@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div id="RWM" style="display:none;">
+	<!-- 2020.2.512.45 --><div id="RWM_alerttemplate" style="display:none;">
+		<div class="rwDialogPopup radalert">			
+			<div class="rwDialogText">
+			{1}				
+			</div>
+			
+			<div>
+				<a  onclick="$find('{0}').close(true);"
+				class="rwPopupButton" href="javascript:void(0);">
+					<span class="rwOuterSpan">
+						<span class="rwInnerSpan">##LOC[OK]##</span>
+					</span>
+				</a>				
+			</div>
+		</div>
+		</div><div id="RWM_prompttemplate" style="display:none;">
+		 <div class="rwDialogPopup radprompt">			
+			    <div class="rwDialogText">
+			    {1}				
+			    </div>		
+			    <div>
+				    <script type="text/javascript">
+				    function RadWindowprompt_detectenter(id, ev, input)
+				    {							
+					    if (!ev) ev = window.event;                
+					    if (ev.keyCode == 13)
+					    {															        
+					        var but = input.parentNode.parentNode.getElementsByTagName("A")[0];					        
+					        if (but)
+						    {							
+							    if (but.click) but.click();
+							    else if (but.onclick)
+							    {
+							        but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);							 
+							    }
+						    }
+					       return false;
+					    } 
+					    else return true;
+				    }	 
+				    </script>
+				    <input title="Enter Value" onkeydown="return RadWindowprompt_detectenter('{0}', event, this);" type="text"  class="rwDialogInput" value="{2}" />
+			    </div>
+			    <div>
+				    <a onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"				
+					    class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				    <a onclick="$find('{0}').close(null);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			    </div>
+		    </div>				       
+		</div><div id="RWM_confirmtemplate" style="display:none;">
+		<div class="rwDialogPopup radconfirm">			
+			<div class="rwDialogText">
+			{1}				
+			</div>						
+			<div>
+				<a onclick="$find('{0}').close(true);"  class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				<a onclick="$find('{0}').close(false);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			</div>
+		</div>		
+		</div><input id="RWM_ClientState" name="RWM_ClientState" type="hidden" />
+</div>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	Tải file
+</title><link href="/CongDan/WebResource.axd?d=1Jh8XAEnROAJPLnV-GPmWkqBvBbj3dcrF0qYxCsTKCT9P9tnIm9ppsKlIJAj8sreldYPNur6YIt0a5JYkZhiZ6CYoiX7iSLFg1y2vkG1_Ba0n5D76Ea54cLEIQk1&amp;t=638048824650232178" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/CongDan/WebResource.axd?d=T_liGWnddn9MzBhuH0BnNqnrM_OEOdeuA0PVDVs3UtKMDRjotR1YF6gVk2eF19JH27ybze5_X7ef8pacQh1OzfAQzSNgpXV7DSSCr-NL1mRkG0FNwGIHIfMzf0mCU78UVEMEhhXMTBd5hTasX4O1kHu7Beo1&amp;t=637247956100000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/CongDan/WebResource.axd?d=auAK4MPwTGbWQklHZhzKH3jI1I-AONf5x1b9eT9eg2V-md4NJ_WFa8CbiNk6I3lD0mvsSPFiAC4tM1WUm3JuGIBefhV3w726urGK0maE6A7XuCJdEosY0bR0el7L5mmGJS1IVkoLpKvsMr5d0&amp;t=638048824650232178" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <form method="post" action="./DownloadFile.aspx?id=cwBFAFEAbABLAHcAUABBAHgAcABLAHEAVABIAGYAeQBCAEQAZQBQADEAOABVAGIANQBTAGYAWgBuAGYAWgB4AFgAVQBwAG8ASABQAFEASwBPAFMAUQA9AA2&amp;filename=cwBFAFEAbABLAHcAUABBAHgAcABLAHEAVABIAGYAeQBCAEQAZQBQADEAOABVAGIANQBTAGYAWgBuAGYAWgB4AFgAVQBwAG8ASABQAFEASwBPAFMAUQA9AA2" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="RadScriptManager1_TSM" id="RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="BrYs/o5dSBWkHtJgbml3whBF0kH4+Jq2W8QdL2ZdPn3IGNsl52PalFpZInR85P8fInJA4Y9KfMwikmIB80Py53S06DYP56bjTQK/FAvW8seJJwwCEPGSMFgeOaCvhterUNtDmD6rVaJ5NfIt30x+/Zue+Prno/vermUtCBu9Hlk6daECU2xlnPJGDxcqgRQTeob67aDGd2MzanvmxbyKlHTHlklN3cU53tCNvONLwT2WbcZlmEEx4hpsp/acMrtPZB56Ayux5x6JG4OmixwBqkB7Im2GrvjpBsuAZJiWRMmiptsuONpieP0Xh1SVhkIWsiAoqDuTosjyTIUQL3sn8xDw+oOtSsDOgKdEjyHRN6QDFH+0g4pGsQ6kSxkNgZM+b9Wsk3sPcK3RA8bXx7scHhS+WgkivICJQM7uU2diSe/Ky9W/Q4ufFcglLqraXF6XKIwI7bRiXBPGsdnrLIOvVw/r8XosjdCzu1PgEx9Vc9sxeOI+ontQxJy+B/QIzHm80zUs18ip06+wr6dc/WjyeQ8xZMxi6Q6jQadP3aK7HlhlMo4hJO7jLUVVCkk=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/CongDan/WebResource.axd?d=HFDZdQg_pjgPphFM47OIMVyPTrA4CZyS4ikrgUQ5XMLCNFg2LcSSF2JK17K8XeQ7vguy9jXBIPVEnlRt0&amp;t=637811981229275428" type="text/javascript"></script>
+
+
+<script src="/CongDan/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-US%3a5bc44d53-7cae-4d56-af98-205692fecf1f%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2020.2.512.45%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3aen-US%3a88f9a2dc-9cbf-434f-a243-cf2dd9f642dc%3ab2e06756%3a16e4e7cd%3af7645509%3a24ee1bba%3a92fe8ea0%3afa31b949%3a4877f69a%3a33715776%3a874f8ea2%3ac128760b%3a19620875%3af46195d3%3a490a9d4e%3abd8f85e4" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9F05F673" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div>   <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('RadScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+    <div id="rwmWindow" style="display:none;">
+	<div id="rwmWindow_alerttemplate" style="display:none;">
+		<div class="rwDialogPopup radalert">			
+			<div class="rwDialogText">
+			{1}				
+			</div>
+			
+			<div>
+				<a  onclick="$find('{0}').close(true);"
+				class="rwPopupButton" href="javascript:void(0);">
+					<span class="rwOuterSpan">
+						<span class="rwInnerSpan">##LOC[OK]##</span>
+					</span>
+				</a>				
+			</div>
+		</div>
+		</div><div id="rwmWindow_prompttemplate" style="display:none;">
+		 <div class="rwDialogPopup radprompt">			
+			    <div class="rwDialogText">
+			    {1}				
+			    </div>		
+			    <div>
+				    <script type="text/javascript">
+				    function RadWindowprompt_detectenter(id, ev, input)
+				    {							
+					    if (!ev) ev = window.event;                
+					    if (ev.keyCode == 13)
+					    {															        
+					        var but = input.parentNode.parentNode.getElementsByTagName("A")[0];					        
+					        if (but)
+						    {							
+							    if (but.click) but.click();
+							    else if (but.onclick)
+							    {
+							        but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);							 
+							    }
+						    }
+					       return false;
+					    } 
+					    else return true;
+				    }	 
+				    </script>
+				    <input title="Enter Value" onkeydown="return RadWindowprompt_detectenter('{0}', event, this);" type="text"  class="rwDialogInput" value="{2}" />
+			    </div>
+			    <div>
+				    <a onclick="$find('{0}').close(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"				
+					    class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				    <a onclick="$find('{0}').close(null);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			    </div>
+		    </div>				       
+		</div><div id="rwmWindow_confirmtemplate" style="display:none;">
+		<div class="rwDialogPopup radconfirm">			
+			<div class="rwDialogText">
+			{1}				
+			</div>						
+			<div>
+				<a onclick="$find('{0}').close(true);"  class="rwPopupButton" href="javascript:void(0);" ><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[OK]##</span></span></a>
+				<a onclick="$find('{0}').close(false);" class="rwPopupButton"  href="javascript:void(0);"><span class="rwOuterSpan"><span class="rwInnerSpan">##LOC[Cancel]##</span></span></a>
+			</div>
+		</div>		
+		</div><input id="rwmWindow_ClientState" name="rwmWindow_ClientState" type="hidden" />
+</div>
+
+				  <script type='text/javascript' id='4a6c97c7'>
+					 function RWM_radalert_4a6c97c7()
+					 {
+					   $find('RWM').radalert('Lỗi tải file!', 330, 100, 'Thông báo', null, '');
+					   Sys.Application.remove_load(RWM_radalert_4a6c97c7);
+					   var scriptBlock = document.getElementById('4a6c97c7');
+					   if(scriptBlock) 
+					   {
+						   var parent = scriptBlock.parentNode;
+						   if(parent) parent.removeChild(scriptBlock);
+					   }
+				  };
+				  Sys.Application.add_load(RWM_radalert_4a6c97c7);</script>
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('RadScriptManager1_TSM');Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindowManager, {"clientStateFieldID":"RWM_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","name":"RWM","skin":"Web20","visibleStatusbar":false,"windowControls":"[]"}, null, null, $get("RWM"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadWindowManager, {"behaviors":36,"clientStateFieldID":"rwmWindow_ClientState","formID":"form1","iconUrl":"","minimizeIconUrl":"","modal":true,"name":"rwmWindow","skin":"Default","visibleStatusbar":false,"windowControls":"[]"}, null, null, $get("rwmWindow"));
+});
+//]]>
+</script>
+</form></body>
+</html>
