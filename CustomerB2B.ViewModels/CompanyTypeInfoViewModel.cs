@@ -24,7 +24,7 @@ namespace CustomerB2B.ViewModels
         public string Notice { get; set; }
         //Trạng thái đã xóa hoặc chưa xóa bản ghi
         public bool? IsDeleted { get; set; }
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
 
         public CompanyTypeInfoViewModel() { }
 

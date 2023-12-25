@@ -17,8 +17,8 @@ namespace CustomerB2B.ViewModels
         public int? Gender { get; set; }
         public int? PhoneNumber { get; set; }
         public string Email { get; set; }
-        
-        public bool Status { get; set; }
+
+        public bool? Status { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
         public CompanyRepresentativeInfoViewModel() { }
